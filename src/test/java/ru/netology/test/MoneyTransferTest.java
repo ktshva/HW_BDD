@@ -65,7 +65,7 @@ class MoneyTransferTest {
         var card2StartBalance = dashboardPage.getCard2Balance();
         dashboardPage.buttonCard2();
         var moneyTransferPage = new TransferPage();
-        int transferAmount = card2StartBalance + 11000;
+        int transferAmount = card1StartBalance + 11000;
         moneyTransferPage.transferVerify(String.valueOf(transferAmount), DataHelper.getFirstCardInfo().getNumber());
         var card1EndBalance = dashboardPage.getCard1Balance();
         var card2EndBalance = dashboardPage.getCard2Balance();
