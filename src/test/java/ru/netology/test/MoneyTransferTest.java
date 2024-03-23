@@ -63,15 +63,15 @@ class MoneyTransferTest {
         var dashboardPage = new DashboardPage();
         var card1StartBalance = dashboardPage.getCard1Balance();
         var card2StartBalance = dashboardPage.getCard2Balance();
-        var transferAmount = "11000";
         dashboardPage.buttonCard2();
         var moneyTransferPage = new TransferPage();
-        moneyTransferPage.transferVerify(transferAmount, DataHelper.getFirstCardInfo().getNumber());
+        int transferAmount = card2StartBalance + 11000;
+        moneyTransferPage.transferVerify(String.valueOf(transferAmount), DataHelper.getFirstCardInfo().getNumber());
         var card1EndBalance = dashboardPage.getCard1Balance();
         var card2EndBalance = dashboardPage.getCard2Balance();
-        int transferAmountInt = Integer.parseInt(transferAmount);
-        assertEquals(card2StartBalance + transferAmountInt, card2EndBalance);
-        assertEquals(card1StartBalance - transferAmountInt, card1EndBalance);
+        TransferPage.shouldErrorMessage();
+        assertEquals(card1StartBalance, card1EndBalance);
+        assertEquals(card2StartBalance, card2EndBalance);
     }
 
 }
