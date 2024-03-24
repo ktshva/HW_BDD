@@ -69,7 +69,7 @@ class MoneyTransferTest {
         moneyTransferPage.transferVerify(String.valueOf(transferAmount), DataHelper.getFirstCardInfo().getNumber());
         var card1EndBalance = dashboardPage.getCard1Balance();
         var card2EndBalance = dashboardPage.getCard2Balance();
-        TransferPage.shouldErrorMessage();
+        moneyTransferPage.shouldErrorMessage();
         assertEquals(card1StartBalance, card1EndBalance);
         assertEquals(card2StartBalance, card2EndBalance);
     }
